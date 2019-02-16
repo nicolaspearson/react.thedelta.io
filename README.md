@@ -132,9 +132,8 @@ The `src` directory layout can be seen below:
 ├── router
 ├── store
 ├── theme
-│   └── styles
-│       ├── ant
-│       └── thedelta
+│   ├── ant
+│   └── thedelta
 ├── types
 └── utils
 ```
