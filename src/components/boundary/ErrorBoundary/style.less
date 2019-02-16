@@ -1,0 +1,59 @@
+@import '~@themes/app-theme.less';
+
+.Error__Main {
+	display: flex;
+	flex: 1;
+	background-color: @page-background;
+	height: calc(100vh - 0px);
+
+	.Error__Card {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		text-align: center;
+		padding: 0px;
+		background-color: @color-white;
+		box-shadow: @boundary-card-box-shadow;
+		border-radius: 10px;
+		margin: 40px;
+		background-color: @page-background;
+	}
+
+	.Error__Message {
+		color: @color-font-medium;
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	.Error__Detail {
+		color: @text-color;
+		font-size: 16px;
+	}
+
+	.Logo__Main {
+		height: 200px;
+		width: 200px;
+		margin: 0;
+		padding: 10px;
+	}
+}
+
+@media screen and (max-width: 840px) {
+	.Error__Main {
+		.Error__Card {
+			background-color: @color-transparent;
+			box-shadow: 0px 0px 0px @color-transparent;
+		}
+
+		.Error__Message {
+			font-size: 18px;
+		}
+
+		.Error__Detail {
+			font-size: 14px;
+		}
+	}
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package receipt;
+
+service ReceiptManager {
+	rpc Echo(EchoRequest) returns (EchoReply);
+	rpc SaveReceipt(SaveReceiptRequest) returns (SaveReceiptReply);
+}
+
+message EchoRequest {
+	string message = 1;
+}
+
+message EchoReply {
+	string message = 1;
+}
+
+message SaveReceiptRequest {
+	Receipt receipt = 1;
+}
+
+message SaveReceiptReply {
+	Receipt receipt = 1;
+}
+
+message Receipt {
+	int32 id = 1;
+	string uuid = 2;
+	string file_url = 3;
+	string date = 4;
+	repeated ReceiptItem items = 5;
+	repeated ReceiptItem totals = 6;
+	string vendor = 7;
+	int32 user_id = 8;
+}
+
+message ReceiptItem {
+	int32 id = 1;
+	int32 receipt_id = 2;
+	string description = 3;
+	int32 quantity = 4;
+	double price = 5;
+}

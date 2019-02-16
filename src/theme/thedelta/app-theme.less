@@ -1,0 +1,69 @@
+@import '../../../node_modules/antd/lib/style/color/colors';
+@import '../../../node_modules/antd/lib/style/themes/default';
+@import '../ant/ant-mixin';
+
+// Ant Design Overrides
+// See theme/ant/ant-theme for more options
+// ---
+
+@primary-color: #A0DD58;
+@secondary-color: #21303F;
+
+@layout-header-background : @secondary-color;
+
+@progress-default-color: @primary-color;
+
+@shadow-color: rgba(0, 0, 0, 0.05);
+@shadow-1-down: 4px 4px 40px @shadow-color;
+
+@font-size-base: 13px;
+
+@text-color: #666;
+
+@border-radius-base: 3px;
+@border-radius-sm: 2px;
+@border-color-split: #f4f4f4;
+@border-color-base: #e5e5e5;
+
+// App
+// Styles used through-out the application
+// ---
+
+// Common
+@color-white: #fefefe;
+@color-transparent: rgba(254, 254, 254, 0);
+
+// Backgrounds
+@gradient-background: @primary-color; /* fallback for old browsers */
+@gradient-background: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+@landing-background: @gradient-background;
+@page-background: #f8f8f8;
+@dashboard-background: #f8f8f8;
+@contact-us-background: @secondary-color;
+@main-page-background: @gradient-background;
+
+// Spinner & Loader
+@color-font-loader: @color-white;
+@color-loader-min: rgba(255, 255, 255, 0.08);
+@color-loader-max: rgba(255, 255, 255, 0.7);
+@loader-background: @gradient-background;
+@spinner-mask-background: rgba(0, 0, 0, 0.2);
+@color-spinner: @primary-color;
+
+// Font
+@color-placeholder: #adadad;
+@color-font-dark: #2f3339;
+@color-font-medium: #3b3b3b;
+@color-font-light: #fefefe;
+
+// Hamburger
+@color-hamburger: @color-white;
+@color-hamburger-hover: rgba(255, 255, 255, 0.75);
+
+// Footer
+@footer-background: @color-transparent;
+@footer-font-color: #d6d6d6;
+
+// Boundary
+@boundary-color-font-error: #ea4f55;
+@boundary-card-box-shadow: 6px 6px 12px 4px #cacaca;
