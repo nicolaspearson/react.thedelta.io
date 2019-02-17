@@ -1,7 +1,7 @@
-import { Button } from 'antd';
 import * as React from 'react';
 
 import Logo from '@components/icon/Logo';
+import Button from '@components/ui/Button';
 import ParticleBackground from '@components/ui/ParticleBackground';
 
 import './style.less';
@@ -25,11 +25,15 @@ const LandingHead = (props: LandingHeadProps) => (
 					</span>
 				</p>
 				<section className="Text__Wrapper__Buttons">
-					<Button className="Button" type="primary">
-						Login
-					</Button>
-					<Button className="Button" type="primary">
-						Sign Up
+					<Button style={{
+						height: '40px',
+						fontSize: '12px',
+						fontWeight: 'bold',
+						borderRadius: '25px',
+						paddingLeft: '30px',
+						paddingRight: '30px'
+					}}>
+						Read More
 					</Button>
 				</section>
 			</section>
@@ -37,7 +41,7 @@ const LandingHead = (props: LandingHeadProps) => (
 				<Logo />
 			</section>
 		</section>
-	</section>
+	</section >
 );
 
 export default LandingHead;
