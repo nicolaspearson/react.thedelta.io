@@ -22,7 +22,11 @@ export class RootStore {
 		this.flagStore = new FlagStore(this);
 		this.routerStore = new RouterStore(this);
 
-		this.registrationManagerClient = new RegistrationManagerClient(ApiUtils.getApiEndpoint(), null, null);
+		this.registrationManagerClient = new RegistrationManagerClient(
+			ApiUtils.getApiEndpoint(),
+			null,
+			null
+		);
 		this.registrationService = new RegistrationService(this.registrationManagerClient);
 	}
 }

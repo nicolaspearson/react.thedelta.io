@@ -3,5 +3,5 @@ export enum RouteNames {
 	PRODUCTS = 'products',
 	TEAM = 'team',
 	ABOUT = 'about',
-	CONTACT = 'contact',
+	CONTACT = 'contact'
 }

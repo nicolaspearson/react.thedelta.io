@@ -25,14 +25,16 @@ const LandingHead = (props: LandingHeadProps) => (
 					</span>
 				</p>
 				<section className="Text__Wrapper__Buttons">
-					<Button style={{
-						height: '40px',
-						fontSize: '12px',
-						fontWeight: 'bold',
-						borderRadius: '25px',
-						paddingLeft: '30px',
-						paddingRight: '30px'
-					}}>
+					<Button
+						style={{
+							height: '40px',
+							fontSize: '12px',
+							fontWeight: 'bold',
+							borderRadius: '25px',
+							paddingLeft: '30px',
+							paddingRight: '30px'
+						}}
+					>
 						Read More
 					</Button>
 				</section>
@@ -41,7 +43,7 @@ const LandingHead = (props: LandingHeadProps) => (
 				<Logo />
 			</section>
 		</section>
-	</section >
+	</section>
 );
 
 export default LandingHead;

@@ -32,9 +32,7 @@ const SiteNav = (props: SiteNavProps) => (
 				</Nav>
 			</div>
 			<div className="SiteNav__End">
-				<Nav>
-					{/* Place navigation items that should appear at the end of here */}
-				</Nav>
+				<Nav>{/* Place navigation items that should appear at the end of here */}</Nav>
 			</div>
 		</div>
 	</div>
