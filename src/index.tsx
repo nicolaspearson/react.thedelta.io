@@ -26,8 +26,6 @@ export class Main extends React.Component {
 	}
 
 	public componentDidMount() {
-		this.store.authStore.echoRequest('Auth Working!');
-		this.store.receiptStore.echoRequest('Receipt Working!');
 		this.store.contactUsStore.echoRequest('Registration Working!');
 	}
 
@@ -42,11 +40,8 @@ export class Main extends React.Component {
 		return (
 			<Provider
 				store={this.store}
-				authStore={this.store.authStore}
 				contactUsStore={this.store.contactUsStore}
-				earlyAccessStore={this.store.earlyAccessStore}
 				flagStore={this.store.flagStore}
-				receiptStore={this.store.receiptStore}
 				routerStore={this.store.routerStore}
 			>
 				<ErrorBoundary>{this.renderRoute()}</ErrorBoundary>

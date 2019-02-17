@@ -76,68 +76,6 @@ Run the following command to generate the proto messages and the service client 
 $ ./proto-web-gen.sh
 ```
 
-## Directory structure
-
-The `src` directory layout can be seen below:
-
-```
-├── api
-├── assets
-│   └── images
-│       ├── png
-│       └── theme
-├── components
-│   ├── boundary
-│   │   └── ErrorBoundary
-│   ├── functional
-│   │   ├── HtmlHead
-│   │   └── RouterLink
-│   ├── icon
-│   │   ├── AntDesign
-│   │   ├── Hamburger
-│   │   ├── Logo
-│   │   ├── Plus
-│   │   └── ReactOfficial
-│   ├── structural
-│   │   ├── DashboardPage
-│   │   ├── Footer
-│   │   ├── Head
-│   │   ├── Header
-│   │   ├── Loader
-│   │   ├── Nav
-│   │   ├── Page
-│   │   └── SiteNav
-│   └── ui
-│       ├── ContactUsForm
-│       ├── EarlyAccessButton
-│       ├── LandingHead
-│       ├── NumberCard
-│       ├── ParticleBackground
-│       ├── Recaptcha
-│       └── RoundButton
-├── containers
-│   ├── App
-│   └── DashboardLayout
-├── enums
-├── logger
-├── models
-├── pages
-│   ├── Dashboard
-│   │   ├── Calendar
-│   │   └── Overview
-│   ├── Landing
-│   ├── Login
-│   └── SignUp
-├── proto
-├── router
-├── store
-├── theme
-│   ├── ant
-│   └── thedelta
-├── types
-└── utils
-```
-
 ## Contribution guidelines
 
 Code reviews are done via pull requests.

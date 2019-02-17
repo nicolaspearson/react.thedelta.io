@@ -25,7 +25,7 @@ export interface ContactUsFormProps {
 
 type AllProps = ContactUsFormProps & FormComponentProps;
 
-@inject('contactUsStore', 'earlyAccessStore')
+@inject('contactUsStore')
 @observer
 class ContactUsForm extends React.Component<AllProps> {
 	private captcha?: any;

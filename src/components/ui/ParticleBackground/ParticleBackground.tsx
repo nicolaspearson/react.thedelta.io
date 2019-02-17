@@ -13,7 +13,7 @@ const ParticleBackground = (props: ParticleBackgroundProps) => (
 		params={{
 			particles: {
 				number: {
-					value: 200,
+					value: 120,
 					density: {
 						enable: true,
 						value_area: 1200
@@ -78,7 +78,7 @@ const ParticleBackground = (props: ParticleBackgroundProps) => (
 				detect_on: 'canvas',
 				events: {
 					onhover: {
-						enable: true,
+						enable: false,
 						mode: 'repulse'
 					},
 					onclick: {

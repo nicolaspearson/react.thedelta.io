@@ -1,14 +1,11 @@
 import * as grpcWeb from 'grpc-web';
 
 import { ContactUs } from '@models/ContactUs';
-import { EarlyAccess } from '@models/EarlyAccess';
 import {
 	EchoReply,
 	EchoRequest,
 	SaveContactUsItemReply,
-	SaveContactUsItemRequest,
-	SaveEarlyAccessItemReply,
-	SaveEarlyAccessItemRequest
+	SaveContactUsItemRequest
 } from '@proto/registration_pb';
 import { RegistrationManagerClient } from '@proto/RegistrationServiceClientPb';
 import ApiUtils from '@utils/ApiUtils';
@@ -48,25 +45,6 @@ export default class RegistrationService {
 						reject(error);
 					} else {
 						resolve(ProtoUtils.contactUsTransformFromProto(reply.getContactUs()));
-					}
-				}
-			);
-		});
-	}
-
-	public async saveEarlyAccessItem(emailAddress: string, captcha: string): Promise<EarlyAccess> {
-		const request = new SaveEarlyAccessItemRequest();
-		request.setEmailAddress(emailAddress);
-		request.setCaptcha(captcha);
-		return new Promise<EarlyAccess>((resolve, reject) => {
-			this.registrationManagerClient.saveEarlyAccessItem(
-				request,
-				{ 'x-access-token': ApiUtils.getApiAccessToken() },
-				(error: grpcWeb.Error, reply: SaveEarlyAccessItemReply) => {
-					if (error) {
-						reject(error);
-					} else {
-						resolve(ProtoUtils.earlyAccessTransformFromProto(reply.getEarlyAccess()));
 					}
 				}
 			);

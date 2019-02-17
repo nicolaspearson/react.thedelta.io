@@ -25,24 +25,6 @@ export namespace ContactUs {
   }
 }
 
-export class EarlyAccess {
-  constructor ();
-  getId(): number;
-  setId(a: number): void;
-  getEmailAddress(): string;
-  setEmailAddress(a: string): void;
-  toObject(): EarlyAccess.AsObject;
-  serializeBinary(): Uint8Array;
-  static deserializeBinary: (bytes: {}) => EarlyAccess;
-}
-
-export namespace EarlyAccess {
-  export type AsObject = {
-    Id: number;
-    EmailAddress: string;
-  }
-}
-
 export class EchoReply {
   constructor ();
   getMessage(): string;
@@ -103,36 +85,6 @@ export namespace FindContactUsItemByEmailRequest {
   }
 }
 
-export class FindEarlyAccessItemByEmailReply {
-  constructor ();
-  getEarlyAccess(): EarlyAccess;
-  setEarlyAccess(a: EarlyAccess): void;
-  toObject(): FindEarlyAccessItemByEmailReply.AsObject;
-  serializeBinary(): Uint8Array;
-  static deserializeBinary: (bytes: {}) => FindEarlyAccessItemByEmailReply;
-}
-
-export namespace FindEarlyAccessItemByEmailReply {
-  export type AsObject = {
-    EarlyAccess: EarlyAccess;
-  }
-}
-
-export class FindEarlyAccessItemByEmailRequest {
-  constructor ();
-  getEmailAddress(): string;
-  setEmailAddress(a: string): void;
-  toObject(): FindEarlyAccessItemByEmailRequest.AsObject;
-  serializeBinary(): Uint8Array;
-  static deserializeBinary: (bytes: {}) => FindEarlyAccessItemByEmailRequest;
-}
-
-export namespace FindEarlyAccessItemByEmailRequest {
-  export type AsObject = {
-    EmailAddress: string;
-  }
-}
-
 export class SaveContactUsItemReply {
   constructor ();
   getContactUs(): ContactUs;
@@ -163,39 +115,6 @@ export namespace SaveContactUsItemRequest {
   export type AsObject = {
     Captcha: string;
     ContactUs: ContactUs;
-  }
-}
-
-export class SaveEarlyAccessItemReply {
-  constructor ();
-  getEarlyAccess(): EarlyAccess;
-  setEarlyAccess(a: EarlyAccess): void;
-  toObject(): SaveEarlyAccessItemReply.AsObject;
-  serializeBinary(): Uint8Array;
-  static deserializeBinary: (bytes: {}) => SaveEarlyAccessItemReply;
-}
-
-export namespace SaveEarlyAccessItemReply {
-  export type AsObject = {
-    EarlyAccess: EarlyAccess;
-  }
-}
-
-export class SaveEarlyAccessItemRequest {
-  constructor ();
-  getCaptcha(): string;
-  setCaptcha(a: string): void;
-  getEmailAddress(): string;
-  setEmailAddress(a: string): void;
-  toObject(): SaveEarlyAccessItemRequest.AsObject;
-  serializeBinary(): Uint8Array;
-  static deserializeBinary: (bytes: {}) => SaveEarlyAccessItemRequest;
-}
-
-export namespace SaveEarlyAccessItemRequest {
-  export type AsObject = {
-    Captcha: string;
-    EmailAddress: string;
   }
 }
 

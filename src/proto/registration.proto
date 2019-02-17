@@ -6,8 +6,6 @@ service RegistrationManager {
 	rpc Echo(EchoRequest) returns (EchoReply);
 	rpc FindContactUsItemByEmail (FindContactUsItemByEmailRequest) returns (FindContactUsItemByEmailReply);
 	rpc SaveContactUsItem (SaveContactUsItemRequest) returns (SaveContactUsItemReply);
-	rpc FindEarlyAccessItemByEmail (FindEarlyAccessItemByEmailRequest) returns (FindEarlyAccessItemByEmailReply);
-	rpc SaveEarlyAccessItem (SaveEarlyAccessItemRequest) returns (SaveEarlyAccessItemReply);
 }
 
 message EchoRequest {
@@ -41,26 +39,4 @@ message ContactUs {
 	string last_name = 3;
 	string email_address = 4;
 	string message = 5;
-}
-
-message FindEarlyAccessItemByEmailRequest {
-	string email_address = 1;
-}
-
-message FindEarlyAccessItemByEmailReply {
-	EarlyAccess early_access = 1;
-}
-
-message SaveEarlyAccessItemRequest {
-	string captcha = 1;
-	string email_address = 2;
-}
-
-message SaveEarlyAccessItemReply {
-	EarlyAccess early_access = 1;
-}
-
-message EarlyAccess {
-	int32 id = 1;
-	string email_address = 2;
 }

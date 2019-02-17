@@ -8,17 +8,11 @@ import Head from '@components/structural/Head';
 import Header from '@components/structural/Header';
 import Page from '@components/structural/Page';
 import ContactUsForm from '@components/ui/ContactUsForm';
-import EarlyAccessButton from '@components/ui/EarlyAccessButton';
 import LandingHead from '@components/ui/LandingHead';
-import Recaptcha from '@components/ui/Recaptcha';
 
 import { ContactUs } from '@models/ContactUs';
-import { EarlyAccess } from '@models/EarlyAccess';
 
 import { ContactUsStore } from '@store/ContactUsStore';
-import { EarlyAccessStore } from '@store/EarlyAccessStore';
-
-import Logger from '@logger';
 
 import {
 	CONTACT_US_API_ERROR_MESSAGE,
@@ -26,52 +20,36 @@ import {
 	CONTACT_US_SUBMITTED_MESSAGE,
 	CONTACT_US_SUBMITTED_TITLE,
 	CONTACT_US_SUCCESS_MESSAGE,
-	CONTACT_US_SUCCESS_TITLE,
-	EARLY_ACCESS_API_ERROR_MESSAGE,
-	EARLY_ACCESS_API_ERROR_TITLE,
-	EARLY_ACCESS_ERROR_MESSAGE,
-	EARLY_ACCESS_ERROR_TITLE,
-	EARLY_ACCESS_SUBMITTED_MESSAGE,
-	EARLY_ACCESS_SUBMITTED_TITLE,
-	EARLY_ACCESS_SUCCESS_MESSAGE,
-	EARLY_ACCESS_SUCCESS_TITLE
+	CONTACT_US_SUCCESS_TITLE
 } from '@utils/Constants';
 
 import './style.less';
 
 export interface LandingProps {
 	contactUsStore?: ContactUsStore;
-	earlyAccessStore?: EarlyAccessStore;
 }
 
 interface State {
 	contactUs?: ContactUs;
-	earlyAccess?: EarlyAccess;
 }
 
-@inject('contactUsStore', 'earlyAccessStore')
+@inject('contactUsStore')
 @observer
 class Landing extends React.Component<LandingProps, State> {
 	private contactFormSubmitted: boolean = false;
-	private earlyAccessSubmitted: boolean = false;
 
 	private notificationType: 'success' | 'info' | 'error' | undefined;
 	private notificationTitle: string | undefined;
 	private notificationMessage: string | undefined;
 
-	private invisibleCaptcha?: any;
 	private contactUsRef?: any;
 
 	public state: State = {
-		contactUs: undefined,
-		earlyAccess: undefined
+		contactUs: undefined
 	};
 
 	public componentDidUpdate() {
-		if (
-			(this.props.contactUsStore && !this.props.contactUsStore.loading) ||
-			(this.props.earlyAccessStore && !this.props.earlyAccessStore.loading)
-		) {
+		if (this.props.contactUsStore && !this.props.contactUsStore.loading) {
 			if (this.notificationTitle && this.notificationMessage) {
 				if (this.notificationType === 'success') {
 					notification.success({
@@ -97,78 +75,8 @@ class Landing extends React.Component<LandingProps, State> {
 	}
 
 	public componentWillUnmount() {
-		this.invisibleCaptcha = undefined;
 		this.contactUsRef = undefined;
 	}
-
-	public handleSubmitEarlyAccess = (emailAddress: string, captchaToken: string) => {
-		if (this.props.earlyAccessStore) {
-			this.props.earlyAccessStore.earlyAccessRequest(emailAddress, captchaToken);
-			this.earlyAccessSubmitted = true;
-		}
-	};
-
-	public handleEarlyAccessValidationError = (error: any) => {
-		// Assign the default message
-		let message = EARLY_ACCESS_ERROR_MESSAGE;
-		// Try to obtain a more detailed message from the control
-		if (error && error.email && error.email.errors && error.email.errors.length > 0) {
-			message = error.email.errors[0].message;
-		}
-		notification.error({
-			message: EARLY_ACCESS_ERROR_TITLE,
-			description: message
-		});
-	};
-
-	private evaluateEarlyAccessSubmission = (data?: EarlyAccess, errors?: any) => {
-		// Check the results of the sign up request
-		if (data && data.id) {
-			// Successful sign up
-			this.notificationType = 'success';
-			this.notificationTitle = EARLY_ACCESS_SUCCESS_TITLE;
-			this.notificationMessage = EARLY_ACCESS_SUCCESS_MESSAGE;
-		} else if (errors) {
-			// Assign the title and default message
-			this.notificationType = 'error';
-			this.notificationTitle = EARLY_ACCESS_API_ERROR_TITLE;
-			this.notificationMessage = EARLY_ACCESS_API_ERROR_MESSAGE;
-			// Try to obtain a more detailed message from the request
-			if (errors && errors.message) {
-				this.notificationMessage = errors.message;
-			}
-		}
-		this.earlyAccessSubmitted = false;
-	};
-
-	private onRenderedInvisibleRecaptcha = (instance: any) => {
-		this.invisibleCaptcha = instance;
-	};
-
-	private executeInvisibleRecaptcha = (earlyAccess: EarlyAccess) => {
-		if (this.invisibleCaptcha) {
-			this.notificationType = 'info';
-			this.notificationTitle = EARLY_ACCESS_SUBMITTED_TITLE;
-			this.notificationMessage = EARLY_ACCESS_SUBMITTED_MESSAGE;
-
-			this.invisibleCaptcha.reset();
-			this.invisibleCaptcha.execute();
-			this.setState({ earlyAccess });
-		}
-	};
-
-	private onExpiredInvisibleRecaptcha = () => {
-		if (this.invisibleCaptcha) {
-			this.invisibleCaptcha.reset();
-		}
-	};
-
-	private onVerifyInvisibleRecaptcha = (captchaToken: string) => {
-		if (this.state && this.state.earlyAccess) {
-			Logger.log('Token', captchaToken);
-			this.handleSubmitEarlyAccess(this.state.earlyAccess.emailAddress, captchaToken);
-		}
-	};
 
 	private handleSubmitContactForm = (contactUs: ContactUs, captchaToken: string) => {
 		if (this.props.contactUsStore) {
@@ -233,13 +141,6 @@ class Landing extends React.Component<LandingProps, State> {
 			}
 		}
 
-		if (this.props.earlyAccessStore) {
-			const { data, errors, loading } = this.props.earlyAccessStore;
-			if (!loading && this.earlyAccessSubmitted) {
-				this.evaluateEarlyAccessSubmission(data, errors);
-			}
-		}
-
 		return (
 			<Page>
 				<Head>
@@ -248,30 +149,7 @@ class Landing extends React.Component<LandingProps, State> {
 				</Head>
 				<Header />
 				<section className="Landing__Main">
-					<Recaptcha
-						id={'invisible-captcha-landing'}
-						size={'invisible'}
-						theme={'light'}
-						render={'automatic'}
-						renderedRecaptcha={this.onRenderedInvisibleRecaptcha}
-						verifyRecaptcha={this.onVerifyInvisibleRecaptcha}
-						expiredRecaptcha={this.onExpiredInvisibleRecaptcha}
-					/>
 					<LandingHead />
-					<div className="EarlyAccess__Layout">
-						<section className="Text__Wrapper">
-							<h1>Be The First</h1>
-							<p>
-								<span>
-									Sign up with your email address to get priority access as soon as we launch!
-								</span>
-							</p>
-						</section>
-						<EarlyAccessButton
-							handleEarlyAccessClick={this.executeInvisibleRecaptcha}
-							handleEarlyAccessValidationError={this.handleEarlyAccessValidationError}
-						/>
-					</div>
 					<section className="Why__Layout">
 						<section className="Text__Wrapper">
 							<h1>Blurb</h1>

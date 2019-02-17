@@ -17,19 +17,23 @@ const SiteNav = (props: SiteNavProps) => (
 		<div className="SiteNav__Inner">
 			<div className="SiteNav__Start">
 				<Nav>
-					<RouterLink routeName={RouteNames.HOME}>
-						<span className="SiteNav__Item">Home</span>
+					<RouterLink routeName={RouteNames.PRODUCTS}>
+						<span className="SiteNav__Item">Products</span>
+					</RouterLink>
+					<RouterLink routeName={RouteNames.TEAM}>
+						<span className="SiteNav__Item">Team</span>
+					</RouterLink>
+					<RouterLink routeName={RouteNames.ABOUT}>
+						<span className="SiteNav__Item">About</span>
+					</RouterLink>
+					<RouterLink routeName={RouteNames.CONTACT}>
+						<span className="SiteNav__Item">Contact</span>
 					</RouterLink>
 				</Nav>
 			</div>
 			<div className="SiteNav__End">
 				<Nav>
-					<RouterLink routeName={RouteNames.LOGIN}>
-						<span className="SiteNav__Item">Login</span>
-					</RouterLink>
-					<RouterLink routeName={RouteNames.SIGN_UP}>
-						<span className="SiteNav__Item">Sign Up</span>
-					</RouterLink>
+					{/* Place navigation items that should appear at the end of here */}
 				</Nav>
 			</div>
 		</div>
