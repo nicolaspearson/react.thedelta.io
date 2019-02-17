@@ -25,18 +25,7 @@ const LandingHead = (props: LandingHeadProps) => (
 					</span>
 				</p>
 				<section className="Text__Wrapper__Buttons">
-					<Button
-						style={{
-							height: '40px',
-							fontSize: '12px',
-							fontWeight: 'bold',
-							borderRadius: '25px',
-							paddingLeft: '30px',
-							paddingRight: '30px'
-						}}
-					>
-						Read More
-					</Button>
+					<Button className="Read__More__Button">Read More</Button>
 				</section>
 			</section>
 			<section className="Image__Wrapper HiddenAtMd">

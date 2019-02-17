@@ -1,16 +1,15 @@
 import * as React from 'react';
 
-import './style.less';
-
 export interface ButtonProps {
-	onClick?: (event: React.FormEvent) => void;
 	children?: any;
+	className?: string;
 	style?: React.CSSProperties;
+	onClick?: (event: React.FormEvent) => void;
 }
 
 const Button = (props: ButtonProps) => {
 	return (
-		<button className="Button__Main" onClick={props.onClick} style={props.style}>
+		<button className={props.className} onClick={props.onClick} style={props.style}>
 			{props.children}
 		</button>
 	);
