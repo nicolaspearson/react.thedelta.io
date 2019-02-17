@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import Button from '@bit/nicolaspearson.interaction.button';
+
 import Logo from '@components/icon/Logo';
-import Button from '@components/ui/Button';
 import ParticleBackground from '@components/ui/ParticleBackground';
 
 import './style.less';

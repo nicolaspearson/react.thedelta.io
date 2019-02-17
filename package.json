@@ -21,7 +21,8 @@
 		"test:coverage": "jest --verbose --coverage"
 	},
 	"dependencies": {
-		"antd": "~3.13.2",
+		"@bit/nicolaspearson.interaction.button": "~1.0.0",
+		"antd": "~3.13.3",
 		"classnames": "~2.2.6",
 		"google-protobuf": "~3.7.0-rc.2",
 		"grpc-web": "~1.0.3",
