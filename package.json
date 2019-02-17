@@ -30,7 +30,8 @@
 		"react-particles-js": "~2.4.2",
 		"reaptcha": "~1.4.2",
 		"router5": "~7.0.1",
-		"router5-plugin-browser": "~7.0.1"
+		"router5-plugin-browser": "~7.0.1",
+		"typeface-lato": "~0.0.54"
 	},
 	"devDependencies": {
 		"@babel/plugin-proposal-decorators": "~7.3.0",
@@ -39,7 +40,7 @@
 		"@types/google-protobuf": "~3.2.7",
 		"@types/node": "~11.9.4",
 		"@types/react": "~16.8.3",
-		"@types/react-dom": "~16.8.1",
+		"@types/react-dom": "~16.8.2",
 		"antd-iconfont": "~3.0.3",
 		"craco-antd": "~1.10.0",
 		"dotenv": "~6.2.0",

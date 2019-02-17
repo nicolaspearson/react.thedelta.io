@@ -34,9 +34,7 @@ const LandingHead = (props: LandingHeadProps) => (
 				</section>
 			</section>
 			<section className="Image__Wrapper HiddenAtMd">
-				<section className="Logo__Circle">
-					<Logo />
-				</section>
+				<Logo />
 			</section>
 		</section>
 	</section>

@@ -51,9 +51,7 @@ class Header extends React.Component<HeaderProps> {
 						<nav className="Header__Bar">
 							<RouterLink routeName={RouteNames.HOME}>
 								<div className="Header__Logo">
-									<section className="Logo__Circle">
-										<Logo />
-									</section>
+									<Logo />
 								</div>
 							</RouterLink>
 

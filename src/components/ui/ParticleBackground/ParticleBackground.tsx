@@ -13,14 +13,14 @@ const ParticleBackground = (props: ParticleBackgroundProps) => (
 		params={{
 			particles: {
 				number: {
-					value: 120,
+					value: 200,
 					density: {
 						enable: true,
 						value_area: 1200
 					}
 				},
 				color: {
-					value: '#303841'
+					value: '#d6d6d6'
 				},
 				shape: {
 					type: 'circle',
