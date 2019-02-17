@@ -802,10 +802,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bit/nicolaspearson.interaction.button@~1.0.0":
-  version "1.0.0"
-  resolved "https://node.bitsrc.io/nicolaspearson.interaction.button/-/nicolaspearson.interaction.button-1.0.0.tgz#3107cda5841e4a9c293161cb5b31f1fc86fc6d35"
-  integrity sha1-MQfNpYQeSpwpMWHLWzHx/Ib8bTU=
+"@bit/nicolaspearson.interaction.button@~1.0.1":
+  version "1.0.1"
+  resolved "https://node.bitsrc.io/nicolaspearson.interaction.button/-/nicolaspearson.interaction.button-1.0.1.tgz#7e442e252ecafaaee90870537d77157d16415fc8"
+  integrity sha1-fkQuJS7K+q7pCHBTfXcVfRZBX8g=
   dependencies:
     enzyme "~3.9.0"
     react "~16.8.2"
@@ -1478,10 +1478,10 @@ antd-iconfont@~3.0.3:
   resolved "https://registry.yarnpkg.com/antd-iconfont/-/antd-iconfont-3.0.3.tgz#4a10a07bfc6cb58f1ad66e7066b5d51541172676"
   integrity sha1-ShCge/xstY8a1m5wZrXVFUEXJnY=
 
-antd@~3.13.3:
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.13.3.tgz#93e1d30b76520768be1292a544963a6a151b2694"
-  integrity sha512-f5cp7hWQORoi3Gm0O/N2guLpzr08W+lX8HiVMyRRzEAVv08R2hrSIds6fdrMEtu2u4yF2Kx8wXw40OZaMatxEg==
+antd@3.13.2:
+  version "3.13.2"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.13.2.tgz#66541c58a9009c54dfe09f5a374863c6783f30f9"
+  integrity sha512-6wA0iQgyDjmDrIy59Dwbt4+vt9F3RYh8DwSF7yIxEquT6Cmzou/0wGVqLNzY11ErewnjxgB8w60cQ5VejSecIQ==
   dependencies:
     "@ant-design/icons" "~1.1.16"
     "@ant-design/icons-react" "~1.1.2"

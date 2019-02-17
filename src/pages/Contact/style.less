@@ -1,0 +1,45 @@
+@import '~@themes/app-theme.less';
+
+.ContactUs__Main {
+	background: @page-background;
+
+	.ContactUs__Layout {
+		text-align: center;
+		font-weight: 400;
+		padding: 30px 10px;
+		background: @secondary-color;
+		margin-left: auto;
+		margin-right: auto;
+
+		.Text__Wrapper {
+			width: 100%;
+			padding: 10px 40px;
+
+			h1 {
+				font-size: 46px;
+				font-weight: 500;
+				line-height: 60px;
+				margin: 8px 0 10px;
+				color: @color-font-light;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 32px;
+				font-weight: 400;
+				color: @color-font-light;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.ContactUs__Main {
+		.ContactUs__Layout {
+			.Text__Wrapper {
+				width: 100%;
+				padding: 10px 10px;
+			}
+		}
+	}
+}

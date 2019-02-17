@@ -4,6 +4,7 @@ import { Route, State } from 'router5';
 
 import App from '@containers/App';
 import { RouteNames } from '@enums/RouteNames';
+import Contact from '@pages/Contact';
 import { RouterStore } from '@store/RouterStore';
 
 export interface LinkData {
@@ -46,3 +47,23 @@ export const AppRoute: AdvRoute = {
 	}
 };
 routes[AppRoute.name] = AppRoute;
+
+export const ContactRoute: AdvRoute = {
+	name: RouteNames.CONTACT,
+	path: '/contact',
+
+	link: () => ({
+		name: ContactRoute.name
+	}),
+
+	component: () => <Contact />,
+
+	activate: action((store: RouterStore) => {
+		store.activatedRouteName(ContactRoute.name);
+	}),
+
+	deactivate: (store: RouterStore) => {
+		store.deActivatedRouteName(ContactRoute.name);
+	}
+};
+routes[ContactRoute.name] = ContactRoute;

@@ -27,7 +27,7 @@ const LandingHead = (props: LandingHeadProps) => (
 				</p>
 				<section className="Text__Wrapper__Buttons">
 					<Button className="Read__More__Button">
-						<a href="#Below__Layout__Head">Read More</a>
+						<a href="#Read__More">Read More</a>
 					</Button>
 				</section>
 			</section>
