@@ -150,6 +150,7 @@ class Landing extends React.Component<LandingProps, State> {
 				<Header />
 				<section className="Landing__Main">
 					<LandingHead />
+					<div id="Below__Layout__Head" />
 					<section className="Why__Layout">
 						<section className="Text__Wrapper">
 							<h1>Blurb</h1>
