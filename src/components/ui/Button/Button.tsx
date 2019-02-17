@@ -10,11 +10,7 @@ export interface ButtonProps {
 
 const Button = (props: ButtonProps) => {
 	return (
-		<button
-			className="Button__Main"
-			onClick={props.onClick}
-			style={props.style}
-		>
+		<button className="Button__Main" onClick={props.onClick} style={props.style}>
 			{props.children}
 		</button>
 	);
