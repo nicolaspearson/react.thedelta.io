@@ -86,24 +86,28 @@
 @media screen and (max-width: 560px) {
 	.Landing__Head {
 		flex-direction: column;
-
-		.Logo__Main {
-			height: 125px;
-			margin: 8px;
-			padding-right: 0px;
-		}
 	}
 }
 
 @media screen and (max-width: 780px) {
 	.Landing__Head {
-		.HiddenAtMd {
-			display: none !important;
+		flex-direction: column;
+
+		.Image__Wrapper {
+			max-width: 500px;
+			margin: auto;
+
+			.Logo__Main {
+				width: 180px;
+				height: 180px;
+				margin: 8px;
+				padding-right: 0px;
+			}
 		}
 
 		.Content__Wrapper {
 			width: 100%;
-			max-width: auto;
+			text-align: center;
 			min-width: auto;
 
 			h1 {

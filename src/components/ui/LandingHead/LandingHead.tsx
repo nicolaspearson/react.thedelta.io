@@ -19,6 +19,9 @@ const LandingHead = (props: LandingHeadProps) => (
 			<div className="Landing__Particles__Container">
 				<ParticleBackground />
 			</div>
+			<section className="Image__Wrapper">
+				<Logo />
+			</section>
 			<section className="Content__Wrapper">
 				<h1>The Delta</h1>
 				<p>
@@ -40,9 +43,6 @@ const LandingHead = (props: LandingHeadProps) => (
 						Read More
 					</Button>
 				</section>
-			</section>
-			<section className="Image__Wrapper HiddenAtMd">
-				<Logo />
 			</section>
 		</section>
 	</section>
