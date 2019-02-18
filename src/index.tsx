@@ -26,7 +26,7 @@ export class Main extends React.Component {
 	}
 
 	public componentDidMount() {
-		this.store.contactUsStore.echoRequest('Registration Working!');
+		this.store.contactUsStore.echoRequest('Contact API Connected!');
 	}
 
 	public renderRoute() {
