@@ -6,100 +6,100 @@
 
 // GENERATED CODE -- DO NOT EDIT!
 
+
 import * as grpcWeb from 'grpc-web';
 import {
-	ContactUs,
-	EchoReply,
-	EchoRequest,
-	FindContactUsItemByEmailReply,
-	FindContactUsItemByEmailRequest,
-	SaveContactUsItemReply,
-	SaveContactUsItemRequest
-} from './registration_pb';
+  ContactUs,
+  EchoReply,
+  EchoRequest,
+  FindContactUsItemByEmailReply,
+  FindContactUsItemByEmailRequest,
+  SaveContactUsItemReply,
+  SaveContactUsItemRequest} from './registration_pb';
 
 export class RegistrationManagerClient {
-	client_: grpcWeb.AbstractClientBase;
-	hostname_: string;
-	credentials_: null | { [index: string]: string };
-	options_: null | { [index: string]: string };
+  client_: grpcWeb.AbstractClientBase;
+  hostname_: string;
+  credentials_: null | { [index: string]: string; };
+  options_: null | { [index: string]: string; };
 
-	constructor(
-		hostname: string,
-		credentials: null | { [index: string]: string },
-		options: null | { [index: string]: string }
-	) {
-		if (!options) options = {};
-		options['format'] = 'binary';
+  constructor (hostname: string,
+               credentials: null | { [index: string]: string; },
+               options: null | { [index: string]: string; }) {
+    if (!options) options = {};
+    options['format'] = 'binary';
 
-		this.client_ = new grpcWeb.GrpcWebClientBase(options);
-		this.hostname_ = hostname;
-		this.credentials_ = credentials;
-		this.options_ = options;
-	}
+    this.client_ = new grpcWeb.GrpcWebClientBase(options);
+    this.hostname_ = hostname;
+    this.credentials_ = credentials;
+    this.options_ = options;
+  }
 
-	methodInfoEcho = new grpcWeb.AbstractClientBase.MethodInfo(
-		EchoReply,
-		(request: EchoRequest) => {
-			return request.serializeBinary();
-		},
-		EchoReply.deserializeBinary
-	);
+  methodInfoEcho = new grpcWeb.AbstractClientBase.MethodInfo(
+    EchoReply,
+    (request: EchoRequest) => {
+      return request.serializeBinary();
+    },
+    EchoReply.deserializeBinary
+  );
 
-	echo(
-		request: EchoRequest,
-		metadata: grpcWeb.Metadata,
-		callback: (err: grpcWeb.Error, response: EchoReply) => void
-	) {
-		return this.client_.rpcCall(
-			this.hostname_ + '/registration.RegistrationManager/Echo',
-			request,
-			metadata,
-			this.methodInfoEcho,
-			callback
-		);
-	}
+  echo(
+    request: EchoRequest,
+    metadata: grpcWeb.Metadata,
+    callback: (err: grpcWeb.Error,
+               response: EchoReply) => void) {
+    return this.client_.rpcCall(
+      this.hostname_ +
+        '/registration.RegistrationManager/Echo',
+      request,
+      metadata,
+      this.methodInfoEcho,
+      callback);
+  }
 
-	methodInfoFindContactUsItemByEmail = new grpcWeb.AbstractClientBase.MethodInfo(
-		FindContactUsItemByEmailReply,
-		(request: FindContactUsItemByEmailRequest) => {
-			return request.serializeBinary();
-		},
-		FindContactUsItemByEmailReply.deserializeBinary
-	);
+  methodInfoFindContactUsItemByEmail = new grpcWeb.AbstractClientBase.MethodInfo(
+    FindContactUsItemByEmailReply,
+    (request: FindContactUsItemByEmailRequest) => {
+      return request.serializeBinary();
+    },
+    FindContactUsItemByEmailReply.deserializeBinary
+  );
 
-	findContactUsItemByEmail(
-		request: FindContactUsItemByEmailRequest,
-		metadata: grpcWeb.Metadata,
-		callback: (err: grpcWeb.Error, response: FindContactUsItemByEmailReply) => void
-	) {
-		return this.client_.rpcCall(
-			this.hostname_ + '/registration.RegistrationManager/FindContactUsItemByEmail',
-			request,
-			metadata,
-			this.methodInfoFindContactUsItemByEmail,
-			callback
-		);
-	}
+  findContactUsItemByEmail(
+    request: FindContactUsItemByEmailRequest,
+    metadata: grpcWeb.Metadata,
+    callback: (err: grpcWeb.Error,
+               response: FindContactUsItemByEmailReply) => void) {
+    return this.client_.rpcCall(
+      this.hostname_ +
+        '/registration.RegistrationManager/FindContactUsItemByEmail',
+      request,
+      metadata,
+      this.methodInfoFindContactUsItemByEmail,
+      callback);
+  }
 
-	methodInfoSaveContactUsItem = new grpcWeb.AbstractClientBase.MethodInfo(
-		SaveContactUsItemReply,
-		(request: SaveContactUsItemRequest) => {
-			return request.serializeBinary();
-		},
-		SaveContactUsItemReply.deserializeBinary
-	);
+  methodInfoSaveContactUsItem = new grpcWeb.AbstractClientBase.MethodInfo(
+    SaveContactUsItemReply,
+    (request: SaveContactUsItemRequest) => {
+      return request.serializeBinary();
+    },
+    SaveContactUsItemReply.deserializeBinary
+  );
 
-	saveContactUsItem(
-		request: SaveContactUsItemRequest,
-		metadata: grpcWeb.Metadata,
-		callback: (err: grpcWeb.Error, response: SaveContactUsItemReply) => void
-	) {
-		return this.client_.rpcCall(
-			this.hostname_ + '/registration.RegistrationManager/SaveContactUsItem',
-			request,
-			metadata,
-			this.methodInfoSaveContactUsItem,
-			callback
-		);
-	}
+  saveContactUsItem(
+    request: SaveContactUsItemRequest,
+    metadata: grpcWeb.Metadata,
+    callback: (err: grpcWeb.Error,
+               response: SaveContactUsItemReply) => void) {
+    return this.client_.rpcCall(
+      this.hostname_ +
+        '/registration.RegistrationManager/SaveContactUsItem',
+      request,
+      metadata,
+      this.methodInfoSaveContactUsItem,
+      callback);
+  }
+
 }
+

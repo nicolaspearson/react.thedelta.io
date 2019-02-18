@@ -2,9 +2,6 @@
 export const CONTACT_US_API_ERROR_TITLE: string = 'Sumbmission Failed';
 export const CONTACT_US_API_ERROR_MESSAGE: string =
 	'Unfortunately we were unable to submit your message, please try again later.';
-export const CONTACT_US_CAPTCHA_ERROR_TITLE: string = 'Captcha Missing';
-export const CONTACT_US_CAPTCHA_ERROR_MESSAGE: string =
-	'Please ensure that you have verified your session using the provided Recaptcha.';
 export const CONTACT_US_SUBMITTED_TITLE: string = 'Submitted';
 export const CONTACT_US_SUBMITTED_MESSAGE: string =
 	'Your message is being submitted, please wait a few moments...';

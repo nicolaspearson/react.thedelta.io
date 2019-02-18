@@ -8,9 +8,6 @@ import { RootStore } from '@store/RootStore';
 export class ContactUsStore extends BaseStore<ContactUs> {
 	public rootStore: RootStore;
 
-	@observable
-	public resetCaptcha: boolean = false;
-
 	constructor(rootStore: RootStore) {
 		super(rootStore);
 		this.rootStore = rootStore;
@@ -27,20 +24,12 @@ export class ContactUsStore extends BaseStore<ContactUs> {
 		}
 	});
 
-	public contactUsRequest = flow(function*(
-		this: ContactUsStore,
-		contactUs: ContactUs,
-		captcha: string
-	) {
+	public contactUsRequest = flow(function*(this: ContactUsStore, contactUs: ContactUs) {
 		this.initState();
-		this.resetCaptcha = false;
 		this.loading = true;
 		try {
-			const res = yield this.rootStore.registrationService.saveContactUsItem(contactUs, captcha);
+			const res = yield this.rootStore.registrationService.saveContactUsItem(contactUs);
 			this.handleResponse(res);
-			if (this.data && this.data.id) {
-				this.resetCaptcha = true;
-			}
 		} catch (error) {
 			this.handleError(error);
 		}

@@ -32,10 +32,9 @@ export default class RegistrationService {
 		});
 	}
 
-	public async saveContactUsItem(contactUs: ContactUs, captcha: string): Promise<ContactUs> {
+	public async saveContactUsItem(contactUs: ContactUs): Promise<ContactUs> {
 		const request = new SaveContactUsItemRequest();
 		request.setContactUs(ProtoUtils.contactUsTransformToProto(contactUs));
-		request.setCaptcha(captcha);
 		return new Promise<ContactUs>((resolve, reject) => {
 			this.registrationManagerClient.saveContactUsItem(
 				request,

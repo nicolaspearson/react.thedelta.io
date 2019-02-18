@@ -1,4 +1,4 @@
-import { Button, notification } from 'antd';
+import { notification } from 'antd';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 
@@ -75,9 +75,9 @@ class Contact extends React.Component<ContactUsProps, State> {
 		this.contactUsRef = undefined;
 	}
 
-	private handleSubmitContactForm = (contactUs: ContactUs, captchaToken: string) => {
+	private handleSubmitContactForm = (contactUs: ContactUs) => {
 		if (this.props.contactUsStore) {
-			this.props.contactUsStore.contactUsRequest(contactUs, captchaToken);
+			this.props.contactUsStore.contactUsRequest(contactUs);
 			this.contactFormSubmitted = true;
 		}
 	};
@@ -105,29 +105,11 @@ class Contact extends React.Component<ContactUsProps, State> {
 		this.contactFormSubmitted = false;
 	};
 
-	private handleContactFormFieldsValidated = (contactUs: ContactUs, captchaToken?: string) => {
-		if (captchaToken) {
-			this.notificationType = 'info';
-			this.notificationTitle = CONTACT_US_SUBMITTED_TITLE;
-			this.notificationMessage = CONTACT_US_SUBMITTED_MESSAGE;
-			this.handleSubmitContactForm(contactUs, captchaToken);
-		} else {
-			this.setState({ contactUs });
-		}
-	};
-
-	private handleContactFormVerifyRecaptcha = (captchaToken: string) => {
-		if (this.state && this.state.contactUs) {
-			this.handleSubmitContactForm(
-				{
-					firstName: this.state.contactUs.firstName,
-					lastName: this.state.contactUs.lastName,
-					emailAddress: this.state.contactUs.emailAddress,
-					message: this.state.contactUs.message
-				},
-				captchaToken
-			);
-		}
+	private handleContactFormFieldsValidated = (contactUs: ContactUs) => {
+		this.notificationType = 'info';
+		this.notificationTitle = CONTACT_US_SUBMITTED_TITLE;
+		this.notificationMessage = CONTACT_US_SUBMITTED_MESSAGE;
+		this.handleSubmitContactForm(contactUs);
 	};
 
 	public render() {
@@ -159,7 +141,6 @@ class Contact extends React.Component<ContactUsProps, State> {
 							<ContactUsForm
 								ref={(instance: any) => (this.contactUsRef = instance)}
 								handleContactFormFieldsValidated={this.handleContactFormFieldsValidated}
-								handleContactFormVerifyRecaptcha={this.handleContactFormVerifyRecaptcha}
 							/>
 						</section>
 					</div>

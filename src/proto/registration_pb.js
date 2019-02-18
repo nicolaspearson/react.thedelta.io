@@ -715,7 +715,6 @@ proto.registration.SaveContactUsItemRequest.prototype.toObject = function(opt_in
  */
 proto.registration.SaveContactUsItemRequest.toObject = function(includeInstance, msg) {
   var obj = {
-    captcha: jspb.Message.getFieldWithDefault(msg, 1, ""),
     contactUs: (f = msg.getContactUs()) && proto.registration.ContactUs.toObject(includeInstance, f)
   };
 
@@ -753,10 +752,6 @@ proto.registration.SaveContactUsItemRequest.deserializeBinaryFromReader = functi
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCaptcha(value);
-      break;
     case 2:
       var value = new proto.registration.ContactUs;
       reader.readMessage(value,proto.registration.ContactUs.deserializeBinaryFromReader);
@@ -791,13 +786,6 @@ proto.registration.SaveContactUsItemRequest.prototype.serializeBinary = function
  */
 proto.registration.SaveContactUsItemRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getCaptcha();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
   f = message.getContactUs();
   if (f != null) {
     writer.writeMessage(
@@ -806,21 +794,6 @@ proto.registration.SaveContactUsItemRequest.serializeBinaryToWriter = function(m
       proto.registration.ContactUs.serializeBinaryToWriter
     );
   }
-};
-
-
-/**
- * optional string captcha = 1;
- * @return {string}
- */
-proto.registration.SaveContactUsItemRequest.prototype.getCaptcha = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.registration.SaveContactUsItemRequest.prototype.setCaptcha = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

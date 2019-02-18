@@ -25,7 +25,6 @@ message FindContactUsItemByEmailReply {
 }
 
 message SaveContactUsItemRequest {
-	string captcha = 1;
 	ContactUs contact_us = 2;
 }
 

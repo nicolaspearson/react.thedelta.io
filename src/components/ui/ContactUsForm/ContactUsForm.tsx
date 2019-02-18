@@ -1,16 +1,13 @@
-import { Col, Form, Input, notification, Row } from 'antd';
+import { Col, Form, Input, Row } from 'antd';
 import { FormComponentProps } from 'antd/lib/form/Form';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import * as Reaptcha from 'reaptcha';
 
 import Button from '@bit/nicolaspearson.interaction.button';
 
 import { ContactUs } from '@models/ContactUs';
 
 import { ContactUsStore } from '@store/ContactUsStore';
-
-import { CONTACT_US_CAPTCHA_ERROR_MESSAGE, CONTACT_US_CAPTCHA_ERROR_TITLE } from '@utils/Constants';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -19,8 +16,7 @@ import './style.less';
 
 export interface ContactUsFormProps {
 	contactUsStore?: ContactUsStore;
-	handleContactFormFieldsValidated: (contactUs: ContactUs, captchaToken?: string) => void;
-	handleContactFormVerifyRecaptcha: (captchaToken: string) => void;
+	handleContactFormFieldsValidated: (contactUs: ContactUs) => void;
 }
 
 type AllProps = ContactUsFormProps & FormComponentProps;
@@ -28,59 +24,18 @@ type AllProps = ContactUsFormProps & FormComponentProps;
 @inject('contactUsStore')
 @observer
 class ContactUsForm extends React.Component<AllProps> {
-	private captcha?: any;
-	private captchaToken?: string;
-	private sitekey = process.env.REACT_APP_RECAPTCHA_SITE_KEY;
-
-	private onRecaptchaLoaded = () => {
-		if (this.captcha) {
-			this.captcha.renderExplicitly();
-		}
-	};
-
-	private executeRecaptcha = () => {
-		let submitting: boolean = false;
-		if (this.captcha) {
-			this.props.form.validateFields((err, values) => {
-				if (!err) {
-					const contactUs: ContactUs = {
-						firstName: values.firstName,
-						lastName: values.lastName,
-						emailAddress: values.email,
-						message: values.message
-					};
-					if (this.captchaToken) {
-						submitting = true;
-					}
-					this.props.handleContactFormFieldsValidated(contactUs, this.captchaToken);
-				}
-			});
-		}
-		if (!submitting && !this.captchaToken) {
-			notification.error({
-				message: CONTACT_US_CAPTCHA_ERROR_TITLE,
-				description: CONTACT_US_CAPTCHA_ERROR_MESSAGE
-			});
-		}
-	};
-
-	private onExpiredRecaptcha = () => {
-		this.captchaToken = undefined;
-		if (this.captcha) {
-			this.captcha.reset();
-		}
-	};
-
-	private onVerifyRecaptcha = (token: string) => {
-		this.captchaToken = token;
-		this.props.handleContactFormVerifyRecaptcha(token);
-	};
-
-	public resetCaptcha = () => {
-		if (this.captcha) {
-			this.captcha.reset();
-		}
-		this.captchaToken = undefined;
+	private onSubmitForm = () => {
+		this.props.form.validateFields((err, values) => {
+			if (!err) {
+				const contactUs: ContactUs = {
+					firstName: values.firstName,
+					lastName: values.lastName,
+					emailAddress: values.email,
+					message: values.message
+				};
+				this.props.handleContactFormFieldsValidated(contactUs);
+			}
+		});
 	};
 
 	private renderForm() {
@@ -140,24 +95,7 @@ class ContactUsForm extends React.Component<AllProps> {
 					</FormItem>
 					<FormItem>
 						<Row>
-							<Reaptcha
-								id={'visible-captcha-contact-us'}
-								ref={(instance: any) => {
-									this.captcha = instance;
-								}}
-								sitekey={this.sitekey}
-								size={'normal'}
-								theme={'light'}
-								explicit={true}
-								onLoad={this.onRecaptchaLoaded}
-								onVerify={this.onVerifyRecaptcha}
-								onExpire={this.onExpiredRecaptcha}
-							/>
-						</Row>
-					</FormItem>
-					<FormItem>
-						<Row>
-							<Button className="CTA__Button" onClick={this.executeRecaptcha}>
+							<Button className="CTA__Button" onClick={this.onSubmitForm}>
 								Submit
 							</Button>
 						</Row>
@@ -168,12 +106,6 @@ class ContactUsForm extends React.Component<AllProps> {
 	}
 
 	public render() {
-		if (this.props.contactUsStore) {
-			const { resetCaptcha } = this.props.contactUsStore;
-			if (resetCaptcha) {
-				this.resetCaptcha();
-			}
-		}
 		return (
 			<div className="ContactUsForm__Main">
 				<div className="ContactUsForm__Body">{this.renderForm()}</div>

@@ -37,10 +37,6 @@ The build is minified and the filenames include the hashes.
 
 This project includes a multi-stage Dockerfile, to build an image you can execute: `docker build . --tag react-thedelta-io:1.0`
 
-## Captcha
-
-Captcha codes have been integrated using [Reaptcha](https://github.com/sarneeh/reaptcha). Register for v2 reCaptcha codes [here](https://www.google.com/recaptcha/intro/v3.html), then change the site keys in the `.env` files accordingly.
-
 ## gRPC & Protocol Buffers
 
 This project uses gRPC and Protocol Buffers.
