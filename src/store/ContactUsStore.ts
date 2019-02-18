@@ -17,7 +17,7 @@ export class ContactUsStore extends BaseStore<ContactUs> {
 		this.initState();
 		this.loading = true;
 		try {
-			const res = yield this.rootStore.registrationService.echo(message);
+			const res = yield this.rootStore.contactService.echo(message);
 			this.handleResponse(res);
 		} catch (error) {
 			this.handleError(error);
@@ -28,7 +28,7 @@ export class ContactUsStore extends BaseStore<ContactUs> {
 		this.initState();
 		this.loading = true;
 		try {
-			const res = yield this.rootStore.registrationService.saveContactUsItem(contactUs);
+			const res = yield this.rootStore.contactService.saveContactUsItem(contactUs);
 			this.handleResponse(res);
 		} catch (error) {
 			this.handleError(error);

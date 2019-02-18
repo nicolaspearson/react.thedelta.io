@@ -1,10 +1,10 @@
-import RegistrationService from '@api/RegistrationService';
+import ContactService from '@api/ContactService';
 
 import { ContactUsStore } from '@store/ContactUsStore';
 import { FlagStore } from '@store/FlagStore';
 import { RouterStore } from '@store/RouterStore';
 
-import { RegistrationManagerClient } from '@proto/RegistrationServiceClientPb';
+import { ContactManagerClient } from '@proto/ContactServiceClientPb';
 
 import ApiUtils from '@utils/ApiUtils';
 
@@ -14,19 +14,15 @@ export class RootStore {
 	public flagStore: FlagStore;
 	public routerStore: RouterStore;
 
-	private registrationManagerClient: RegistrationManagerClient;
-	public registrationService: RegistrationService;
+	private contactManagerClient: ContactManagerClient;
+	public contactService: ContactService;
 
 	constructor() {
 		this.contactUsStore = new ContactUsStore(this);
 		this.flagStore = new FlagStore(this);
 		this.routerStore = new RouterStore(this);
 
-		this.registrationManagerClient = new RegistrationManagerClient(
-			ApiUtils.getApiEndpoint(),
-			null,
-			null
-		);
-		this.registrationService = new RegistrationService(this.registrationManagerClient);
+		this.contactManagerClient = new ContactManagerClient(ApiUtils.getApiEndpoint(), null, null);
+		this.contactService = new ContactService(this.contactManagerClient);
 	}
 }

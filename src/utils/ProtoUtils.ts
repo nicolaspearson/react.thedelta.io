@@ -1,5 +1,5 @@
 import { ContactUs } from '@models/ContactUs';
-import { ContactUs as ContactUsProto } from '@proto/registration_pb';
+import { ContactUs as ContactUsProto } from '@proto/contact_pb';
 
 export function contactUsTransformToProto(contactUs: ContactUs): ContactUsProto {
 	const contactUsProto: ContactUsProto = new ContactUsProto();

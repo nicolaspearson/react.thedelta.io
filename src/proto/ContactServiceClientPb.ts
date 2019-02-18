@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for registration
+ * @fileoverview gRPC-Web generated client stub for contact
  * @enhanceable
  * @public
  */
@@ -15,9 +15,9 @@ import {
   FindContactUsItemByEmailReply,
   FindContactUsItemByEmailRequest,
   SaveContactUsItemReply,
-  SaveContactUsItemRequest} from './registration_pb';
+  SaveContactUsItemRequest} from './contact_pb';
 
-export class RegistrationManagerClient {
+export class ContactManagerClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -50,7 +50,7 @@ export class RegistrationManagerClient {
                response: EchoReply) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/registration.RegistrationManager/Echo',
+        '/contact.ContactManager/Echo',
       request,
       metadata,
       this.methodInfoEcho,
@@ -72,7 +72,7 @@ export class RegistrationManagerClient {
                response: FindContactUsItemByEmailReply) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/registration.RegistrationManager/FindContactUsItemByEmail',
+        '/contact.ContactManager/FindContactUsItemByEmail',
       request,
       metadata,
       this.methodInfoFindContactUsItemByEmail,
@@ -94,7 +94,7 @@ export class RegistrationManagerClient {
                response: SaveContactUsItemReply) => void) {
     return this.client_.rpcCall(
       this.hostname_ +
-        '/registration.RegistrationManager/SaveContactUsItem',
+        '/contact.ContactManager/SaveContactUsItem',
       request,
       metadata,
       this.methodInfoSaveContactUsItem,

@@ -6,23 +6,23 @@ import {
 	EchoRequest,
 	SaveContactUsItemReply,
 	SaveContactUsItemRequest
-} from '@proto/registration_pb';
-import { RegistrationManagerClient } from '@proto/RegistrationServiceClientPb';
+} from '@proto/contact_pb';
+import { ContactManagerClient } from '@proto/ContactServiceClientPb';
 import ApiUtils from '@utils/ApiUtils';
 import * as ProtoUtils from '@utils/ProtoUtils';
 
-export default class RegistrationService {
-	private registrationManagerClient: RegistrationManagerClient;
+export default class ContactService {
+	private contactManagerClient: ContactManagerClient;
 
-	constructor(registrationManagerClient: RegistrationManagerClient) {
-		this.registrationManagerClient = registrationManagerClient;
+	constructor(contactManagerClient: ContactManagerClient) {
+		this.contactManagerClient = contactManagerClient;
 	}
 
 	public async echo(message: string): Promise<string> {
 		const request = new EchoRequest();
 		request.setMessage(message);
 		return new Promise<string>((resolve, reject) => {
-			this.registrationManagerClient.echo(request, {}, (error: grpcWeb.Error, reply: EchoReply) => {
+			this.contactManagerClient.echo(request, {}, (error: grpcWeb.Error, reply: EchoReply) => {
 				if (error) {
 					reject(error);
 				} else {
@@ -36,7 +36,7 @@ export default class RegistrationService {
 		const request = new SaveContactUsItemRequest();
 		request.setContactUs(ProtoUtils.contactUsTransformToProto(contactUs));
 		return new Promise<ContactUs>((resolve, reject) => {
-			this.registrationManagerClient.saveContactUsItem(
+			this.contactManagerClient.saveContactUsItem(
 				request,
 				{ 'x-access-token': ApiUtils.getApiAccessToken() },
 				(error: grpcWeb.Error, reply: SaveContactUsItemReply) => {

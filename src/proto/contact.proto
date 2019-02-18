@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package registration;
+package contact;
 
-service RegistrationManager {
+service ContactManager {
 	rpc Echo(EchoRequest) returns (EchoReply);
 	rpc FindContactUsItemByEmail (FindContactUsItemByEmailRequest) returns (FindContactUsItemByEmailReply);
 	rpc SaveContactUsItem (SaveContactUsItemRequest) returns (SaveContactUsItemReply);
