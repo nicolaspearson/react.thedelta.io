@@ -14,6 +14,7 @@ module.exports = {
 	},
 	jest: {
 		configure: {
+			moduleDirectories: ['.', 'node_modules'],
 			moduleNameMapper: {
 				'^@api(.*)$': '<rootDir>/src/api$1',
 				'^@assets(.*)$': '<rootDir>/src/assets$1',
