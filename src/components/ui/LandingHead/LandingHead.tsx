@@ -33,7 +33,7 @@ const LandingHead = (props: LandingHeadProps) => (
 						onClick={() => {
 							if (props.routerStore) {
 								const { router } = props.routerStore;
-								router.navigate(RouteNames.CONTACT);
+								router.navigate(RouteNames.PRODUCTS);
 							}
 						}}
 					>
