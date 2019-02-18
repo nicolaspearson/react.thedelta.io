@@ -1,15 +1,22 @@
 @import '~@themes/app-theme.less';
 
 .ContactUs__Main {
-	background: @page-background;
+	display: flex;
+	flex: 1;
+	background: @contact-us-background;
 
 	.ContactUs__Layout {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
 		text-align: center;
+		padding: 0px;
+		background-color: @color-white;
+		margin: 40px;
 		font-weight: 400;
-		padding: 30px 10px;
-		background: @secondary-color;
-		margin-left: auto;
-		margin-right: auto;
 
 		.Text__Wrapper {
 			width: 100%;
@@ -20,14 +27,14 @@
 				font-weight: 500;
 				line-height: 60px;
 				margin: 8px 0 10px;
-				color: @color-font-light;
+				color: @secondary-color;
 			}
 
 			p {
 				font-size: 16px;
 				line-height: 32px;
 				font-weight: 400;
-				color: @color-font-light;
+				color: @secondary-color;
 			}
 		}
 	}
@@ -36,6 +43,8 @@
 @media screen and (max-width: 780px) {
 	.ContactUs__Main {
 		.ContactUs__Layout {
+			margin: 0px;
+
 			.Text__Wrapper {
 				width: 100%;
 				padding: 10px 10px;

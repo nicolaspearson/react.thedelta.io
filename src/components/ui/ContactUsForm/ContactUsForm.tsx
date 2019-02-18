@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import * as Reaptcha from 'reaptcha';
 
-import RoundButton from '@components/ui/RoundButton';
+import Button from '@bit/nicolaspearson.interaction.button';
 
 import { ContactUs } from '@models/ContactUs';
 
@@ -157,7 +157,9 @@ class ContactUsForm extends React.Component<AllProps> {
 					</FormItem>
 					<FormItem>
 						<Row>
-							<RoundButton onClick={this.executeRecaptcha} text={'submit'} type={'primary'} />
+							<Button className="CTA__Button" onClick={this.executeRecaptcha}>
+								Submit
+							</Button>
 						</Row>
 					</FormItem>
 				</Form>
