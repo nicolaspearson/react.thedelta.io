@@ -27,7 +27,7 @@ module.exports = {
 				'^@router(.*)$': '<rootDir>/src/router$1',
 				'^@store(.*)$': '<rootDir>/src/store$1',
 				'^@theme(.*)$': '<rootDir>/src/theme$1',
-				'^@themes(.*)$': '<rootDir>/src/theme/thedelta$1',
+				'^@themes(.*)$': '<rootDir>/src/theme/the-delta$1',
 				'^@utils(.*)$': '<rootDir>/src/utils$1'
 			}
 		}
@@ -36,7 +36,7 @@ module.exports = {
 		{
 			plugin: CracoAntDesignPlugin,
 			options: {
-				customizeThemeLessPath: path.join(__dirname, 'src/theme/thedelta/index.less')
+				customizeThemeLessPath: path.join(__dirname, 'src/theme/the-delta/index.less')
 			}
 		}
 	],
@@ -54,7 +54,7 @@ module.exports = {
 			'@router': path.resolve(__dirname, 'src/router'),
 			'@store': path.resolve(__dirname, 'src/store'),
 			'@theme': path.resolve(__dirname, 'src/theme'),
-			'@themes': path.resolve(__dirname, `src/theme/thedelta`),
+			'@themes': path.resolve(__dirname, `src/theme/the-delta`),
 			'@utils': path.resolve(__dirname, 'src/utils/')
 		},
 		plugins: [

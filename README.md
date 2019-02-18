@@ -35,7 +35,7 @@ The build is minified and the filenames include the hashes.
 
 ## Docker
 
-This project includes a multi-stage Dockerfile, to build an image you can execute: `docker build . --tag react-thedelta-io:1.0`
+This project includes a multi-stage Dockerfile, to build an image you can execute: `docker build . --tag react-the-delta-io:1.0`
 
 ## gRPC & Protocol Buffers
 

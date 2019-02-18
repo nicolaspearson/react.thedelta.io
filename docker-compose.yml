@@ -2,14 +2,14 @@ version: '3.5'
 
 networks:
   react-front-tier:
-    name: react-thedelta-io-net
+    name: react-the-delta-io-net
 
 services:
-  react-thedelta:
-    image: react-thedelta-io:1.10
+  react-the-delta:
+    image: react-the-delta-io:1.10
     build:
       context: .
-    container_name: thedelta-react-io
+    container_name: the-delta-react-io
     expose:
       - 80
     ports:

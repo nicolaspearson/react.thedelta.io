@@ -10,7 +10,7 @@ import { RootStore } from '@store/RootStore';
 import * as serviceWorker from '@utils/serviceWorker';
 
 // Apply the theme
-import '@theme/thedelta/index.less';
+import '@theme/the-delta/index.less';
 
 // MobX: Enforce strict mode
 configure({ enforceActions: 'observed' });
