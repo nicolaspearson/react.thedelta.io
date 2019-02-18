@@ -128,8 +128,8 @@ class Contact extends React.Component<ContactUsProps, State> {
 				</Head>
 				<Header />
 				<section className="ContactUs__Main">
-					<div className="ContactUs__Layout">
-						<section className="Text__Wrapper">
+					<div className="ContactUs__Card">
+						<section className="Content__Wrapper">
 							<h1>Get In Touch</h1>
 							<p>
 								<span>

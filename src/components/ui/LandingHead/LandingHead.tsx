@@ -4,11 +4,13 @@ import Button from '@bit/nicolaspearson.interaction.button';
 
 import Logo from '@components/icon/Logo';
 import ParticleBackground from '@components/ui/ParticleBackground';
+import { RouteNames } from '@enums/RouteNames';
+import { RouterStore } from '@store/RouterStore';
 
 import './style.less';
 
 export interface LandingHeadProps {
-	// Empty
+	routerStore?: RouterStore;
 }
 
 const LandingHead = (props: LandingHeadProps) => (
@@ -17,7 +19,7 @@ const LandingHead = (props: LandingHeadProps) => (
 			<div className="Landing__Particles__Container">
 				<ParticleBackground />
 			</div>
-			<section className="Text__Wrapper">
+			<section className="Content__Wrapper">
 				<h1>The Delta</h1>
 				<p>
 					<span>
@@ -25,9 +27,17 @@ const LandingHead = (props: LandingHeadProps) => (
 						libero eu facilisis.
 					</span>
 				</p>
-				<section className="Text__Wrapper__Buttons">
-					<Button className="Read__More__Button">
-						<a href="#Read__More">Read More</a>
+				<section className="Content__Wrapper__Buttons">
+					<Button
+						className="Read__More__Button"
+						onClick={() => {
+							if (props.routerStore) {
+								const { router } = props.routerStore;
+								router.navigate(RouteNames.CONTACT);
+							}
+						}}
+					>
+						Read More
 					</Button>
 				</section>
 			</section>

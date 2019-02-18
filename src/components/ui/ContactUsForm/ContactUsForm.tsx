@@ -108,7 +108,7 @@ class ContactUsForm extends React.Component<AllProps> {
 	public render() {
 		return (
 			<div className="ContactUsForm__Main">
-				<div className="ContactUsForm__Body">{this.renderForm()}</div>
+				<div className="ContactUsForm__Content">{this.renderForm()}</div>
 			</div>
 		);
 	}

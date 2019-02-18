@@ -1,27 +1,21 @@
-import { observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 
 import Head from '@components/structural/Head';
 import Header from '@components/structural/Header';
 import Page from '@components/structural/Page';
 import LandingHead from '@components/ui/LandingHead';
+import { RouterStore } from '@store/RouterStore';
 
 import './style.less';
 
 export interface LandingProps {
-	// Empty
+	routerStore?: RouterStore;
 }
 
-interface State {
-	// Empty
-}
-
+@inject('routerStore')
 @observer
-class Landing extends React.Component<LandingProps, State> {
-	public state: State = {
-		// Empty
-	};
-
+class Landing extends React.Component<LandingProps> {
 	public render() {
 		return (
 			<Page>
@@ -31,8 +25,7 @@ class Landing extends React.Component<LandingProps, State> {
 				</Head>
 				<Header />
 				<section className="Landing__Main">
-					<LandingHead />
-					<div id="Read__More" />
+					<LandingHead routerStore={this.props.routerStore} />
 				</section>
 			</Page>
 		);
