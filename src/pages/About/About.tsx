@@ -28,7 +28,7 @@ class About extends React.Component<AboutProps, State> {
 				<section className="About__Main">
 					<div className="About__Card">
 						<section className="Content__Wrapper">
-							<h1>About</h1>
+							<h1 className="placeholder">About</h1>
 						</section>
 					</div>
 				</section>

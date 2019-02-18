@@ -28,7 +28,7 @@ class Team extends React.Component<TeamProps, State> {
 				<section className="Team__Main">
 					<div className="Team__Card">
 						<section className="Content__Wrapper">
-							<h1>Team</h1>
+							<h1 className="placeholder">Team</h1>
 						</section>
 					</div>
 				</section>

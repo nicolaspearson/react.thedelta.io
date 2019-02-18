@@ -28,7 +28,7 @@ class Products extends React.Component<ProductsProps, State> {
 				<section className="Products__Main">
 					<div className="Products__Card">
 						<section className="Content__Wrapper">
-							<h1>Products</h1>
+							<h1 className="placeholder">Products</h1>
 						</section>
 					</div>
 				</section>
