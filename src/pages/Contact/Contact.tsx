@@ -150,7 +150,11 @@ class Contact extends React.Component<ContactUsProps, State> {
 						<section className="Text__Wrapper">
 							<h1>Get In Touch</h1>
 							<p>
-								<span>Have a question? Submit the form below to leave us a message!</span>
+								<span>
+									Have a question?
+									<br />
+									Submit the form below to leave us a message!
+								</span>
 							</p>
 							<ContactUsForm
 								ref={(instance: any) => (this.contactUsRef = instance)}

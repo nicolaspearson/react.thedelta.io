@@ -1,6 +1,7 @@
-import { Button, Card } from 'antd';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
+
+import Button from '@bit/nicolaspearson.interaction.button';
 
 import Logo from '@components/icon/Logo';
 import { RouteNames } from '@enums/RouteNames';
@@ -34,10 +35,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
 		});
 	}
 
-	private onHomeClick = (event: React.MouseEvent) => {
-		if (event) {
-			event.preventDefault();
-		}
+	private onHomeClick = () => {
 		if (this.props.routerStore) {
 			const { router } = this.props.routerStore;
 			router.navigate(RouteNames.HOME);
@@ -48,7 +46,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
 		if (this.state.hasError) {
 			return (
 				<section className="Error__Main">
-					<Card className="Error__Card" bordered={false} cover={<Logo />}>
+					<section className="Error__Card">
+						<Logo />
 						<h1 className="Error__Message">
 							Oh no!
 							<br />
@@ -58,10 +57,10 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
 							We have logged the issue and have already started working on a solution!
 						</h2>
 						<br />
-						<Button size="large" type="primary" onClick={this.onHomeClick}>
+						<Button className="CTA__Button" onClick={this.onHomeClick}>
 							Take me home
 						</Button>
-					</Card>
+					</section>
 				</section>
 			);
 		}
