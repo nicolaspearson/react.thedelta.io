@@ -802,10 +802,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bit/nicolaspearson.interaction.button@~1.0.1":
-  version "1.0.1"
-  resolved "https://node.bitsrc.io/nicolaspearson.interaction.button/-/nicolaspearson.interaction.button-1.0.1.tgz#7e442e252ecafaaee90870537d77157d16415fc8"
-  integrity sha1-fkQuJS7K+q7pCHBTfXcVfRZBX8g=
+"@bit/nicolaspearson.interaction.button@~1.0.2":
+  version "1.0.2"
+  resolved "https://node.bitsrc.io/nicolaspearson.interaction.button/-/nicolaspearson.interaction.button-1.0.2.tgz#d0389b0adf0d0a5502ef0040da08280b8b0c73be"
+  integrity sha1-0DibCt8NClUC7wBA2ggoC4sMc74=
   dependencies:
     enzyme "~3.9.0"
     react "~16.8.2"
